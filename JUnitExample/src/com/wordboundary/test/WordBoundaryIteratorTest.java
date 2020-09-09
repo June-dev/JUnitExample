@@ -5,25 +5,52 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.wordboundary.WordBoundaryIterator;
+
 class WordBoundaryIteratorTest {
 
+	private WordBoundaryIterator iterator;
+
 	@BeforeEach
-	void setUp() throws Exception {
+	protected void setUp() throws Exception {
+		iterator = WordBoundaryIterator.getInstacne();
 	}
 
 	@Test
 	void testCurrent() {
-		fail("Not yet implemented");
+		String text = "aaa bbb";
+		
+		iterator.setText(text);
+		assertEquals(0, iterator.current());
+		System.out.println(iterator.DONE);
+		
+		iterator.next();
+		assertEquals(3, iterator.current());
+		System.out.println(iterator.DONE);
+		
+		iterator.next();
+		assertEquals(4, iterator.current());
+		System.out.println(iterator.DONE);
+		
+		iterator.next();
+		assertEquals(7, iterator.current());
+		System.out.println(iterator.DONE);
+		
+		iterator.next();
+		assertEquals(7, iterator.current());
+		System.out.println(iterator.DONE);
+		
+		iterator.next();
+		assertEquals(7, iterator.current());
+		System.out.println(iterator.DONE);		
 	}
 
 	@Test
 	void testFollowing() {
-		fail("Not yet implemented");
 	}
 
 	@Test
 	void testNext() {
-		fail("Not yet implemented");
 	}
 
 }
