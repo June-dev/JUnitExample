@@ -47,6 +47,12 @@ class WordBoundaryIteratorTest {
 
 	@Test
 	void testFollowing() {
+		String text = "aaa bbb";
+		iterator.setText(text);
+		assertEquals(3, iterator.following(1));
+		assertEquals(3, iterator.current());
+		assertEquals(4, iterator.next());
+		
 	}
 
 	@Test
